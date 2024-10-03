@@ -1,7 +1,21 @@
+"use client";
 import React from "react";
+import { useState, useEffect, useContext } from "react";
+import { useRouter } from "next/router";
+import Image from "next/image";
+import Link from "next/link";
+import { useTheme } from "next-themes";
+import images from "@/assets";
 
 function Navbar() {
-  return <div>Navbar</div>;
+  const { theme, setTheme } = useTheme();
+  return (
+    <div className="flexBetween w-full fixed z-10 p-4 flex-row border-b dark:bg-nft-dark bg-white dark:border-nft-black-1 border-nft-gray-1">
+      <div>
+        <Link href="/" passHref></Link>
+      </div>
+    </div>
+  );
 }
 
 export default Navbar;

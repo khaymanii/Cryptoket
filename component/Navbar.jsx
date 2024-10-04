@@ -10,11 +10,13 @@ import images from "@/assets";
 function Navbar() {
   const { theme, setTheme } = useTheme();
   return (
-    <div className="flexBetween w-full fixed z-10 p-4 flex-row border-b dark:bg-nft-dark bg-white dark:border-nft-black-1 border-nft-gray-1">
-      <div>
-        <Link href="/" passHref></Link>
+    <nav className="flexBetween w-full fixed z-10 p-4 flex-row border-b dark:bg-nft-dark bg-white dark:border-nft-black-1 border-nft-gray-1">
+      <div className="">
+        <Link href="/" passHref>
+          Name
+        </Link>
       </div>
-    </div>
+    </nav>
   );
 }
 

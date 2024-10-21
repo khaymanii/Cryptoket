@@ -1,5 +1,5 @@
-import Navbar from "./Navbar.jsx";
-import Footer from "./Footer.jsx";
-import Button from "./Button.jsx";
+import Navbar from "./Navbar";
+import Footer from "./Footer";
+import Button from "./Button";
 
 export { Navbar, Footer, Button };

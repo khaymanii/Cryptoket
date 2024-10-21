@@ -1,11 +1,11 @@
 "use client";
 import React from "react";
 import { useState, useEffect, useContext } from "react";
-import { useRouter } from "next/router";
 import Image from "next/image";
 import Link from "next/link";
 import images from "@/assets";
 import Button from "./Button";
+import { CiMenuFries } from "react-icons/ci";
 
 const MenuItems = ({ active, setActive, isMobile }) => {
   const generateLink = (index) => {
@@ -46,25 +46,23 @@ const MenuItems = ({ active, setActive, isMobile }) => {
   );
 };
 
-const ButtonGroup = ({ setActive, router }) => {
-  const hasConnected = false;
+const ButtonGroup = ({ setActive }) => {
+  const hasConnected = true;
 
   return hasConnected ? (
-    <Button
-      btnName="Create"
-      classStyles="mx-2 rounded-xl"
-      handleClick={() => {
-        setActive("");
-        router.push("/creatednft");
-      }}
-    />
+    <Link href="/creatednft" passHref>
+      <Button
+        btnName="Create"
+        classStyles="mx-2 rounded-xl"
+        handleClick={() => setActive("")}
+      />
+    </Link>
   ) : (
     <Button btnName="Connect" classStyles="mx-2 rounded-xl" />
   );
 };
 
 function Navbar() {
-  const router = useRouter();
   const [active, setActive] = useState("Explore NFTs");
   return (
     <nav className="flexBetween w-full fixed z-10 p-4 flex-row border-b dark:bg-nft-dark bg-white dark:border-nft-black-1 border-nft-gray-1">
@@ -102,9 +100,11 @@ function Navbar() {
       <div className="md:hidden flex">
         <MenuItems active={active} setActive={setActive} />
         <div className="ml-4">
-          <ButtonGroup setActive={setActive} router={router} />
+          <ButtonGroup setActive={setActive} />
         </div>
       </div>
+
+      <div className="hidden md:flex"></div>
     </nav>
   );
 }

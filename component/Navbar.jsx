@@ -6,6 +6,7 @@ import Link from "next/link";
 import images from "@/assets";
 import Button from "./Button";
 import { CiMenuFries } from "react-icons/ci";
+import { AiOutlineClose } from "react-icons/ai";
 
 const MenuItems = ({ active, setActive, isMobile }) => {
   const generateLink = (index) => {
@@ -64,9 +65,10 @@ const ButtonGroup = ({ setActive }) => {
 
 function Navbar() {
   const [active, setActive] = useState("Explore NFTs");
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <nav className="flexBetween w-full fixed z-10 p-4 flex-row border-b dark:bg-nft-dark bg-white dark:border-nft-black-1 border-nft-gray-1">
-      <div className="flex flex- flex-row justify-start">
+      <div className="flex flex-row justify-start">
         <Link href="/" passHref>
           <div
             className="flexCenter md:hidden cursor-pointer"
@@ -104,7 +106,32 @@ function Navbar() {
         </div>
       </div>
 
-      <div className="hidden md:flex"></div>
+      <div className="hidden md:flex ml-2">
+        {isOpen ? (
+          <AiOutlineClose
+            alt="crossbar"
+            style={{ objectFit: "contain" }}
+            width={30}
+            height={30}
+            onClick={() => setIsOpen(false)}
+            className="w-7 h-7"
+          />
+        ) : (
+          <CiMenuFries
+            alt="menubar"
+            style={{ objectFit: "contain" }}
+            width={30}
+            height={30}
+            onClick={() => setIsOpen(true)}
+            className="w-7 h-7"
+          />
+        )}
+        {isOpen && (
+          <div>
+            <div></div>
+          </div>
+        )}
+      </div>
     </nav>
   );
 }

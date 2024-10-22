@@ -127,8 +127,13 @@ function Navbar() {
           />
         )}
         {isOpen && (
-          <div>
-            <div></div>
+          <div className="fixed inset-0 top-65 bg-white z-10 nav-h flex justify-between flex-col">
+            <div className="flex-1 p-4">
+              <MenuItems active={active} setActive={setActive} isMobile />
+            </div>
+            <div className="p-4 border-t border-nft-gray-1">
+              <ButtonGroup setActive={setActive} />
+            </div>
           </div>
         )}
       </div>

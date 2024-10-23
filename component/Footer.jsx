@@ -13,7 +13,12 @@ const FooterLinks = ({ heading, items }) => {
         {heading}
       </h3>
       {items.map((item, index) => (
-        <p key={index}>{item}</p>
+        <p
+          key={index}
+          className="font-poppins text-nft-black-1 font-normal text-base cursor-pointer hover:text-nft-black-1 my-3"
+        >
+          {item}
+        </p>
       ))}
     </div>
   );

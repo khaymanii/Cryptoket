@@ -1,5 +1,6 @@
 import Banner from "@/component/Banner";
 import Topseller from "@/component/Topseller";
+import Hotbirds from "@/component/Hotbirds";
 
 export default function Home() {
   return (
@@ -11,6 +12,7 @@ export default function Home() {
           parentStyles="justify-start mb-6 h-72 sm:h-60 p-12 xs:p-4 xs:h-44 rounded-3xl"
         />{" "}
         <Topseller />
+        <Hotbirds />
       </div>
     </div>
   );

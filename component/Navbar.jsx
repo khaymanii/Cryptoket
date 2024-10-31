@@ -51,7 +51,7 @@ const ButtonGroup = ({ setActive }) => {
   const hasConnected = true;
 
   return hasConnected ? (
-    <Link href="/creatednft" passHref>
+    <Link href="/createnft" passHref>
       <Button
         btnName="Create"
         classStyles="mx-2 rounded-xl"

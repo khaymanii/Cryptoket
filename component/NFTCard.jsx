@@ -1,7 +1,13 @@
+"use client";
 import Image from "next/image";
 import images from "../assets";
 import Link from "next/link";
+import { NFTContext } from "@/context/NFTContext";
+import { useContext } from "react";
+
 function NFTCard({ nft }) {
+  const { nftCurrency } = useContext(NFTContext);
+
   return (
     <Link href={{ pathname: "/nftdetails", query: nft }} passHref>
       <div className="flex-1 min-w-215 max-w-max xs:max-w-none sm:w-full sm:min-w-155 minmd:min-w-256 minlg:min-w-327 bg-white rounded-2xl p-4 m-4 minlg:m-8 sm:my-2 sm:mx-2  cursor-pointer shadow-md">
@@ -19,7 +25,7 @@ function NFTCard({ nft }) {
           </p>
           <div className="flexBetween mt-1 minlg:mt-3 flex-row xs:flex-col xs:items-start xs:mt-3">
             <p className="font-poppins text-nft-black-1 font-semibold text-xs minlg:text-lg">
-              {nft.price} <span className="normal">ETH</span>
+              {nft.price} <span className="normal">{nftCurrency}</span>
             </p>
             <p className="font-poppins text-nft-black-1 font-semibold text-xs minlg:text-lg">
               {nft.seller}

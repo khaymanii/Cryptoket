@@ -1,6 +1,7 @@
 import localFont from "next/font/local";
 import "./globals.css";
 import { Navbar, Footer } from "@/component";
+import { NFTProvider } from "@/context/NFTContext";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -24,9 +25,11 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <NFTProvider>
           <Navbar />
           <div className="pt-65"> {children}</div>
           <Footer />
+        </NFTProvider>
       </body>
     </html>
   );

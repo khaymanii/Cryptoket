@@ -7,6 +7,7 @@ import images from "@/assets";
 import Button from "./Button";
 import { CiMenuFries } from "react-icons/ci";
 import { AiOutlineClose } from "react-icons/ai";
+import { NFTContext } from "@/context/NFTContext";
 
 const MenuItems = ({ active, setActive, isMobile }) => {
   const generateLink = (index) => {
@@ -48,9 +49,9 @@ const MenuItems = ({ active, setActive, isMobile }) => {
 };
 
 const ButtonGroup = ({ setActive }) => {
-  const hasConnected = true;
+  const { connectWallet, currentAccount } = useContext(NFTContext);
 
-  return hasConnected ? (
+  return currentAccount ? (
     <Link href="/createnft" passHref>
       <Button
         btnName="Create"
@@ -59,7 +60,11 @@ const ButtonGroup = ({ setActive }) => {
       />
     </Link>
   ) : (
-    <Button btnName="Connect" classStyles="mx-2 rounded-xl" />
+    <Button
+      btnName="Connect"
+      classStyles="mx-2 rounded-xl"
+      handleClick={connectWallet}
+    />
   );
 };
 

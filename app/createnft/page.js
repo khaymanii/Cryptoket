@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 import { useState, useCallback, useContext, useMemo } from "react";
 import { useRouter } from "next/router";
@@ -5,6 +6,7 @@ import { useDropzone } from "react-dropzone";
 import Image from "next/image";
 import { Button, Input } from "@/component";
 import { FaCloudUploadAlt } from "react-icons/fa";
+import { NFTContext } from "@/context/NFTContext";
 
 function Createnft() {
   const [fileUrl, setFileUrl] = useState(null);
@@ -13,9 +15,12 @@ function Createnft() {
     name: "",
     description: "",
   });
+  const { uploadToIPFS } = useContext(NFTContext);
 
-  const onDrop = useCallback(() => {
-    // upload image to the ipfs
+  const onDrop = useCallback(async (acceptedFile) => {
+    const url = await uploadToIPFS(acceptedFile[0]);
+
+    setFileUrl(url);
   }, []);
 
   const {
